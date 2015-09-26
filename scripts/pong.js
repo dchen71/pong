@@ -114,7 +114,6 @@ function new_game(){
 }
 
 function draw(canvas){
-
     // draw mid line and gutters
     canvas.draw_line([WIDTH / 2, 0],[WIDTH / 2, HEIGHT], 1, "White");
     canvas.draw_line([PAD_WIDTH, 0],[PAD_WIDTH, HEIGHT], 1, "White");
@@ -129,17 +128,17 @@ function draw(canvas){
             if(ball_pos[1] + BALL_RADIUS >= paddle1_pos[1]):
                 ball_vel[0] = -1.1 * ball_vel[0];
         }
-        elif(ball_pos[0] <= BALL_RADIUS){   
+        else if(ball_pos[0] <= BALL_RADIUS){   
             score2 += 1;
             spawn_ball(LEFT);
         }
     }
-    elif(ball_pos[0] >= paddle2_pos[0] - BALL_RADIUS - PAD_WIDTH){
+    else if(ball_pos[0] >= paddle2_pos[0] - BALL_RADIUS - PAD_WIDTH){
         if(ball_pos[1] + BALL_RADIUS <= paddle2_pos[1] + PAD_HEIGHT){
             if(ball_pos[1] >= paddle2_pos[1])
                 ball_vel[0] = -1.1 * ball_vel[0];
         }
-        elif(ball_pos[0] >= WIDTH - BALL_RADIUS){   
+        else if(ball_pos[0] >= WIDTH - BALL_RADIUS){   
             score1 += 1 ;
             spawn_ball(RIGHT);
         }
@@ -147,7 +146,7 @@ function draw(canvas){
     
     if(ball_pos[1] <= BALL_RADIUS)
         ball_vel[1] = - ball_vel[1];
-    elif(ball_pos[1] >= HEIGHT - BALL_RADIUS)
+    else if(ball_pos[1] >= HEIGHT - BALL_RADIUS)
          ball_vel[1] = - ball_vel[1];
     
     // draw ball
@@ -158,7 +157,7 @@ function draw(canvas){
         paddle1_pos[1] = 0;
         paddle1_pos[1] += paddle1_vel;
     }
-    elif(paddle1_pos[1] + PAD_HEIGHT >= 410){   
+    else if(paddle1_pos[1] + PAD_HEIGHT >= 410){   
         paddle1_pos[1] = 325;
         paddle1_pos[1] -= paddle1_vel;
     }
@@ -169,7 +168,7 @@ function draw(canvas){
         paddle2_pos[1] = 0;
         paddle2_pos[1] += paddle2_vel;
     }
-    elif(paddle2_pos[1] + PAD_HEIGHT >= 410){   
+    else if(paddle2_pos[1] + PAD_HEIGHT >= 410){   
         paddle2_pos[1] = 325;
         paddle2_pos[1] -= paddle2_vel;
     }
