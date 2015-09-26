@@ -90,12 +90,12 @@ function spawn_ball(direction){
 
     ball_pos = [WIDTH/2,HEIGHT/2];
     if (direction == LEFT){
-        ball_vel[0] = random.randrange(2,5);
-        ball_vel[1] = -random.randrange(2,5);
+        ball_vel[0] = Math.random() * (5-2) + 2;
+        ball_vel[1] = -Math.random() * (5-2) + 2;
     }
     else{   
-        ball_vel[0] = -random.randrange(2,5);
-        ball_vel[1] = random.randrange(2,5);
+        ball_vel[0] = -Math.random() * (5-2) + 2;
+        ball_vel[1] = Math.random() * (5-2) + 2;
     }
 }
 
@@ -107,7 +107,7 @@ function new_game(){
     paddle2_vel = 0;;
     score1 = 0;
     score2 = 0;
-    if (random.randrange(0,30) > 15)
+    if (Math.random() * (30) > 15)
         spawn_ball(LEFT);
     else
         spawn_ball(RIGHT);
