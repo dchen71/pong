@@ -51,18 +51,21 @@ function draw(canvas){
     canvas.clearRect(0, 0, box.width, box.height);
 
     // draw mid line and gutters
+    //
     canvas.beginPath();
     canvas.moveTo(WIDTH/2, 0);
     canvas.lineTo(WIDTH/2, HEIGHT);
     canvas.strokeStyle = '#FFFFFF';
     canvas.lineWidth = 1;
     canvas.stroke();
+    //
     canvas.beginPath();
     canvas.moveTo(PAD_WIDTH/2, 0);
     canvas.lineTo(PAD_WIDTH/2, HEIGHT);
     canvas.strokeStyle = '#FFFFFF';
     canvas.lineWidth = 1;
     canvas.stroke();    
+    //
     canvas.beginPath();
     canvas.moveTo(WIDTH - PAD_WIDTH, 0);
     canvas.lineTo(WIDTH - PAD_WIDTH, HEIGHT);
@@ -101,13 +104,13 @@ function draw(canvas){
          ball_vel[1] = - ball_vel[1];
     
     // draw ball
-    context.beginPath();
-    context.arc(ball_pos[0], ball_pos[1], BALL_RADIUS, 0, 2 * Math.PI, false);
-    context.fillStyle = 'white';
-    context.fill();
-    context.lineWidth = 5;
-    context.strokeStyle = 'white';
-    context.stroke();
+    canvas.beginPath();
+    canvas.arc(ball_pos[0], ball_pos[1], BALL_RADIUS, 0, 2 * Math.PI, false);
+    canvas.fillStyle = 'white';
+    canvas.fill();
+    canvas.lineWidth = 5;
+    canvas.strokeStyle = 'white';
+    canvas.stroke();
 
     // update paddle's vertical position, keep paddle on the screen
     if(paddle1_pos[1] <= 0){   
@@ -133,8 +136,18 @@ function draw(canvas){
         paddle2_pos[1] += paddle2_vel;
 
     //draw paddles
-    canvas.draw_polygon([paddle1_pos, [paddle1_pos[0], paddle1_pos[1]+PAD_HEIGHT],[paddle1_pos[0] + PAD_WIDTH, paddle1_pos[1]] , [paddle1_pos[0] + PAD_WIDTH, paddle1_pos[1]+PAD_HEIGHT]], 10, 'white', 'white');
-    canvas.draw_polygon([paddle2_pos, [paddle2_pos[0], paddle2_pos[1]+PAD_HEIGHT],[paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]] , [paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]+PAD_HEIGHT]], 10, 'white', 'white');
+    //Paddle 1
+    canvas.beginPath();
+    canvas.lineWidth = '10';
+    canvas.strokeStyle = 'white';
+    canvas.rect(paddle1_pos[0], paddle1_pos[1],paddle1_pos[1]+PAD_HEIGHT],[paddle1_pos[0] + PAD_WIDTH, paddle1_pos[1]], [paddle1_pos[0] + PAD_WIDTH, paddle1_pos[1]+PAD_HEIGHT] );
+    canvas.stroke();
+    //Paddle 2
+    canvas.beginPath();
+    canvas.lineWidth = '10';
+    canvas.strokeStyle = 'white';
+    canvas.rect(paddle2_pos[0], paddle2_pos[1],paddle2_pos[1]+PAD_HEIGHT],[paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]], [paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]+PAD_HEIGHT] );
+    canvas.stroke();
       
     // draw scores
     canvas.fillStyle = "white";
@@ -142,6 +155,7 @@ function draw(canvas){
     canvas.fillText(format(cTime), 150,100);
     canvas.fillText(str(score1),150,50);
     canvas.fillText(str(score2),400,50);
+    canvas.file();
 }  
         
 function keydown(key){
