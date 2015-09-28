@@ -1,5 +1,7 @@
 // Implementation of classic arcade game Pong
 
+
+
 //Selects the canvas
 var box = document.getElementById("myCanvas");
 var ctx = box.getContext("2d");
@@ -46,7 +48,7 @@ function new_game(){
         spawn_ball(RIGHT);
 }
 
-function draw(canvas){
+function draw_handler(canvas){
     //Clears the screen on refresh
     canvas.clearRect(0, 0, box.width, box.height);
 
@@ -134,7 +136,7 @@ function draw(canvas){
     }
     else
         paddle2_pos[1] += paddle2_vel;
-
+/*
     //draw paddles
     //Paddle 1
     canvas.beginPath();
@@ -148,16 +150,16 @@ function draw(canvas){
     canvas.strokeStyle = 'white';
     canvas.rect(paddle2_pos[0], paddle2_pos[1],paddle2_pos[1]+PAD_HEIGHT],[paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]], [paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]+PAD_HEIGHT] );
     canvas.stroke();
-      
+  */    
     // draw scores
     canvas.fillStyle = "white";
     canvas.font = '50px Comic Sans MS';
-    canvas.fillText(format(cTime), 150,100);
-    canvas.fillText(str(score1),150,50);
-    canvas.fillText(str(score2),400,50);
-    canvas.file();
+    canvas.fillText(score1,150,50);
+    canvas.fillText(score2,400,50);
+    canvas.fill();
 }  
-        
+      
+      /*  
 function keydown(key){
     if key == simplegui.KEY_MAP["w"]:
         paddle1_vel -= 5
@@ -179,11 +181,11 @@ function keyup(key){
     if key == simplegui.KEY_MAP["down"]:
         paddle2_vel = 0
 }
-
+*/
 // create frame
 var draw = setInterval(function(){draw_handler(ctx)},10);
-frame.set_keydown_handler(keydown)
-frame.set_keyup_handler(keyup)
+//frame.set_keydown_handler(keydown)
+//frame.set_keyup_handler(keyup)
 
 // start frame
-new_game()
+new_game();
