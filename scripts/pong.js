@@ -1,19 +1,3 @@
-// define draw handler
-function draw_handler(canvas){
-    canvas.clearRect(0, 0, box.width, box.height);
-    canvas.fillStyle = "black";
-    canvas.font = '20px Comic Sans MS';
-    canvas.fillText(format(cTime), 150,100);
-    canvas.fillText('Success: '+ String(x),10,40);
-    canvas.fillText('Total: ' + String(y),10,20);
-}
-        
-// create time/drawing handlers
-var timer = setInterval(function(){timer_handler()}, 100);
-var draw = setInterval(function(){draw_handler(ctx)},10);
-
-
-
 // Implementation of classic arcade game Pong
 
 //Selects the canvas
@@ -67,9 +51,24 @@ function draw(canvas){
     canvas.clearRect(0, 0, box.width, box.height);
 
     // draw mid line and gutters
-    canvas.draw_line([WIDTH / 2, 0],[WIDTH / 2, HEIGHT], 1, "White");
-    canvas.draw_line([PAD_WIDTH, 0],[PAD_WIDTH, HEIGHT], 1, "White");
-    canvas.draw_line([WIDTH - PAD_WIDTH, 0],[WIDTH - PAD_WIDTH, HEIGHT], 1, "White");
+    canvas.beginPath();
+    canvas.moveTo(WIDTH/2, 0);
+    canvas.lineTo(WIDTH/2, HEIGHT);
+    canvas.strokeStyle = '#FFFFFF';
+    canvas.lineWidth = 1;
+    canvas.stroke();
+    canvas.beginPath();
+    canvas.moveTo(PAD_WIDTH/2, 0);
+    canvas.lineTo(PAD_WIDTH/2, HEIGHT);
+    canvas.strokeStyle = '#FFFFFF';
+    canvas.lineWidth = 1;
+    canvas.stroke();    
+    canvas.beginPath();
+    canvas.moveTo(WIDTH - PAD_WIDTH, 0);
+    canvas.lineTo(WIDTH - PAD_WIDTH, HEIGHT);
+    canvas.strokeStyle = '#FFFFFF';
+    canvas.lineWidth = 1;
+    canvas.stroke();
         
     // update ball and bounce back
     ball_pos[0] += ball_vel[0];
@@ -77,7 +76,7 @@ function draw(canvas){
     
     if(ball_pos[0] + BALL_RADIUS <= paddle1_pos[0] + PAD_WIDTH){   
         if(ball_pos[1] + BALL_RADIUS <= paddle1_pos[1] + PAD_HEIGHT){
-            if(ball_pos[1] + BALL_RADIUS >= paddle1_pos[1]):
+            if(ball_pos[1] + BALL_RADIUS >= paddle1_pos[1])
                 ball_vel[0] = -1.1 * ball_vel[0];
         }
         else if(ball_pos[0] <= BALL_RADIUS){   
@@ -124,7 +123,7 @@ function draw(canvas){
         paddle2_pos[1] = 325;
         paddle2_pos[1] -= paddle2_vel;
     }
-    else:
+    else
         paddle2_pos[1] += paddle2_vel;
 
          
@@ -163,7 +162,7 @@ function keyup(key){
 }
 
 // create frame
-frame.set_draw_handler(draw)
+var draw = setInterval(function(){draw_handler(ctx)},10);
 frame.set_keydown_handler(keydown)
 frame.set_keyup_handler(keyup)
 
