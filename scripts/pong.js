@@ -101,8 +101,14 @@ function draw(canvas){
          ball_vel[1] = - ball_vel[1];
     
     // draw ball
-    canvas.draw_circle(ball_pos, BALL_RADIUS, 5, 'White', 'White')
-    
+    context.beginPath();
+    context.arc(ball_pos[0], ball_pos[1], BALL_RADIUS, 0, 2 * Math.PI, false);
+    context.fillStyle = 'white';
+    context.fill();
+    context.lineWidth = 5;
+    context.strokeStyle = 'white';
+    context.stroke();
+
     // update paddle's vertical position, keep paddle on the screen
     if(paddle1_pos[1] <= 0){   
         paddle1_pos[1] = 0;
@@ -126,7 +132,6 @@ function draw(canvas){
     else
         paddle2_pos[1] += paddle2_vel;
 
-         
     //draw paddles
     canvas.draw_polygon([paddle1_pos, [paddle1_pos[0], paddle1_pos[1]+PAD_HEIGHT],[paddle1_pos[0] + PAD_WIDTH, paddle1_pos[1]] , [paddle1_pos[0] + PAD_WIDTH, paddle1_pos[1]+PAD_HEIGHT]], 10, 'white', 'white');
     canvas.draw_polygon([paddle2_pos, [paddle2_pos[0], paddle2_pos[1]+PAD_HEIGHT],[paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]] , [paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]+PAD_HEIGHT]], 10, 'white', 'white');
