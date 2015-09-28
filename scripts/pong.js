@@ -63,6 +63,9 @@ function new_game(){
 }
 
 function draw(canvas){
+    //Clears the screen on refresh
+    canvas.clearRect(0, 0, box.width, box.height);
+
     // draw mid line and gutters
     canvas.draw_line([WIDTH / 2, 0],[WIDTH / 2, HEIGHT], 1, "White");
     canvas.draw_line([PAD_WIDTH, 0],[PAD_WIDTH, HEIGHT], 1, "White");
@@ -130,8 +133,11 @@ function draw(canvas){
     canvas.draw_polygon([paddle2_pos, [paddle2_pos[0], paddle2_pos[1]+PAD_HEIGHT],[paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]] , [paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]+PAD_HEIGHT]], 10, 'white', 'white');
       
     // draw scores
-    canvas.draw_text(str(score1),(150,50),50,"white");
-    canvas.draw_text(str(score2),(400,50),50,"white");
+    canvas.fillStyle = "white";
+    canvas.font = '50px Comic Sans MS';
+    canvas.fillText(format(cTime), 150,100);
+    canvas.fillText(str(score1),150,50);
+    canvas.fillText(str(score2),400,50);
 }  
         
 function keydown(key){
