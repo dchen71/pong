@@ -34,9 +34,9 @@ function spawn_ball(direction){
 
 // define event handlers
 function new_game(){
-    paddle1_pos = [0,175];
+    paddle1_pos = [0,50];
     paddle1_vel = 0;
-    paddle2_pos = [591,175]
+    paddle2_pos = [296,50]
     paddle2_vel = 0;;
     score1 = 0;
     score2 = 0;
@@ -51,13 +51,7 @@ function draw_handler(canvas){
     canvas.clearRect(0, 0, box.width, box.height);
 
     // draw mid line and gutters
-    //
-    canvas.beginPath();
-    canvas.moveTo(WIDTH/2, 0);
-    canvas.lineTo(WIDTH/2, HEIGHT);
-    canvas.strokeStyle = '#FFFFFF';
-    canvas.lineWidth = 1;
-    canvas.stroke();
+
     //
     canvas.beginPath();
     canvas.moveTo(PAD_WIDTH/2, 0);
@@ -134,21 +128,21 @@ function draw_handler(canvas){
     }
     else
         paddle2_pos[1] += paddle2_vel;
-/*
+
     //draw paddles
     //Paddle 1
     canvas.beginPath();
     canvas.lineWidth = '10';
-    canvas.strokeStyle = 'white';
-    canvas.rect(paddle1_pos[0], paddle1_pos[1],paddle1_pos[1]+PAD_HEIGHT],[paddle1_pos[0] + PAD_WIDTH, paddle1_pos[1]], [paddle1_pos[0] + PAD_WIDTH, paddle1_pos[1]+PAD_HEIGHT] );
-    canvas.stroke();
+    canvas.fillStyle = 'white';
+    canvas.rect(paddle1_pos[0], paddle1_pos[1], PAD_WIDTH, PAD_HEIGHT);
+    canvas.fill();
     //Paddle 2
     canvas.beginPath();
     canvas.lineWidth = '10';
-    canvas.strokeStyle = 'white';
-    canvas.rect(paddle2_pos[0], paddle2_pos[1],paddle2_pos[1]+PAD_HEIGHT],[paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]], [paddle2_pos[0] + PAD_WIDTH, paddle2_pos[1]+PAD_HEIGHT] );
-    canvas.stroke();
-  */    
+    canvas.fillStyle = 'white';
+    canvas.rect(paddle2_pos[0], paddle2_pos[1], PAD_WIDTH, PAD_HEIGHT);
+    canvas.fill();
+     
     // draw scores
     canvas.fillStyle = "white";
     canvas.font = '10px Comic Sans MS';
