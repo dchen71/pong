@@ -51,15 +51,21 @@ function draw_handler(canvas){
     canvas.clearRect(0, 0, box.width, box.height);
 
     // draw mid line and gutters
-
-    //
+    //draw mid line
+    canvas.beginPath();
+    canvas.moveTo(WIDTH/2, 0);
+    canvas.lineTo(WIDTH/2, HEIGHT);
+    canvas.strokeStyle = '#FFFFFF';
+    canvas.lineWidth = 1;
+    canvas.stroke();
+    //draw left lane
     canvas.beginPath();
     canvas.moveTo(PAD_WIDTH/2, 0);
     canvas.lineTo(PAD_WIDTH/2, HEIGHT);
     canvas.strokeStyle = '#FFFFFF';
     canvas.lineWidth = 1;
     canvas.stroke();    
-    //
+    //draw right lane
     canvas.beginPath();
     canvas.moveTo(WIDTH - PAD_WIDTH, 0);
     canvas.lineTo(WIDTH - PAD_WIDTH, HEIGHT);
@@ -146,9 +152,9 @@ function draw_handler(canvas){
     // draw scores
     canvas.fillStyle = "white";
     canvas.font = '10px Comic Sans MS';
-    canvas.fillText(score1,150,20);
-    canvas.fillText('|',175,20);
-    canvas.fillText(score2,200,20);
+    canvas.fillText(score1,125,15);
+    canvas.fillText('|',150,15);
+    canvas.fillText(score2,175,15);
     canvas.fill();
 }  
       
