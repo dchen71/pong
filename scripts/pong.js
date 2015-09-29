@@ -1,17 +1,15 @@
 // Implementation of classic arcade game Pong
 
-
-
 //Selects the canvas
 var box = document.getElementById("myCanvas");
 var ctx = box.getContext("2d");
 
 // initialize globals - pos and vel encode vertical info for paddles
-var WIDTH = 600;
-var HEIGHT = 400;
-var BALL_RADIUS = 20;
-var PAD_WIDTH = 8;
-var PAD_HEIGHT = 80;
+var WIDTH = 300;
+var HEIGHT = 200;
+var BALL_RADIUS = 10;
+var PAD_WIDTH = 4;
+var PAD_HEIGHT = 40;
 var HALF_PAD_WIDTH = PAD_WIDTH / 2;
 var HALF_PAD_HEIGHT = PAD_HEIGHT / 2;
 var LEFT = false;
@@ -19,7 +17,7 @@ var RIGHT = true;
 
 // initialize ball_pos and ball_vel for new bal in middle of table
 var ball_pos = [300,200];
-var ball_vel = [7,-5];
+var ball_vel = [Math.random() * 2,-5];
 
 // if direction is RIGHT, the ball's velocity is upper right, else upper left
 function spawn_ball(direction){
@@ -153,9 +151,10 @@ function draw_handler(canvas){
   */    
     // draw scores
     canvas.fillStyle = "white";
-    canvas.font = '50px Comic Sans MS';
-    canvas.fillText(score1,150,50);
-    canvas.fillText(score2,400,50);
+    canvas.font = '10px Comic Sans MS';
+    canvas.fillText(score1,150,20);
+    canvas.fillText('|',175,20);
+    canvas.fillText(score2,200,20);
     canvas.fill();
 }  
       
@@ -183,7 +182,7 @@ function keyup(key){
 }
 */
 // create frame
-var draw = setInterval(function(){draw_handler(ctx)},10);
+var draw = setInterval(function(){draw_handler(ctx)},15);
 //frame.set_keydown_handler(keydown)
 //frame.set_keyup_handler(keyup)
 
