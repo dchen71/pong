@@ -58,14 +58,14 @@ function draw_handler(canvas){
     canvas.strokeStyle = '#FFFFFF';
     canvas.lineWidth = 1;
     canvas.stroke();
-    //draw left lane
+    //draw left gutter
     canvas.beginPath();
-    canvas.moveTo(PAD_WIDTH/2, 0);
-    canvas.lineTo(PAD_WIDTH/2, HEIGHT);
+    canvas.moveTo(PAD_WIDTH/2 + 2, 0);
+    canvas.lineTo(PAD_WIDTH/2 + 2, HEIGHT);
     canvas.strokeStyle = '#FFFFFF';
     canvas.lineWidth = 1;
     canvas.stroke();    
-    //draw right lane
+    //draw right gutter
     canvas.beginPath();
     canvas.moveTo(WIDTH - PAD_WIDTH, 0);
     canvas.lineTo(WIDTH - PAD_WIDTH, HEIGHT);
