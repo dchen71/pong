@@ -77,7 +77,7 @@ function draw_handler(canvas){
     ball_pos[0] += ball_vel[0];
     ball_pos[1] += ball_vel[1];
     
-    if(ball_pos[0] + BALL_RADIUS <= paddle1_pos[0] + PAD_WIDTH){   
+    if(ball_pos[0] <= paddle1_pos[0] + BALL_RADIUS + PAD_WIDTH){   
         if(ball_pos[1] + BALL_RADIUS <= paddle1_pos[1] + PAD_HEIGHT){
             if(ball_pos[1] + BALL_RADIUS >= paddle1_pos[1])
                 ball_vel[0] = -1.1 * ball_vel[0];
