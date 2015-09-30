@@ -113,24 +113,20 @@ function draw_handler(canvas){
     canvas.stroke();
 
     // update paddle's vertical position, keep paddle on the screen
-    if(paddle1_pos[1] <= 0){   
-        paddle1_pos[1] = 0;
-        paddle1_pos[1] += paddle1_vel;
+    if(paddle1_pos[1] + paddle1_vel < 0){   
+        paddle1_vel = 0;
     }
-    else if(paddle1_pos[1] + PAD_HEIGHT >= 410){   
-        paddle1_pos[1] = 325;
-        paddle1_pos[1] -= paddle1_vel;
+    else if(paddle1_pos[1] + PAD_HEIGHT + paddle1_vel > HEIGHT){   
+        paddle1_vel = 0;
     }
     else
         paddle1_pos[1] += paddle1_vel;
     
-    if(paddle2_pos[1] <= 0){   
-        paddle2_pos[1] = 0;
-        paddle2_pos[1] += paddle2_vel;
+    if(paddle2_pos[1] + paddle2_vel < 0){   
+        paddle2_vel = 0;
     }
-    else if(paddle2_pos[1] + PAD_HEIGHT >= 410){   
-        paddle2_pos[1] = 325;
-        paddle2_pos[1] -= paddle2_vel;
+    else if(paddle2_pos[1] + PAD_HEIGHT + paddle2_vel > HEIGHT){   
+        paddle2_vel = 0;
     }
     else
         paddle2_pos[1] += paddle2_vel;
