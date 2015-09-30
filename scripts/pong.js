@@ -17,7 +17,7 @@ var RIGHT = true;
 
 // initialize ball_pos and ball_vel for new bal in middle of table
 var ball_pos = [300,200];
-var ball_vel = [Math.random() * 2,-5];
+var ball_vel = [Math.random() * 3,-5];
 
 // if direction is RIGHT, the ball's velocity is upper right, else upper left
 function spawn_ball(direction){
@@ -152,9 +152,9 @@ function draw_handler(canvas){
     // draw scores
     canvas.fillStyle = "white";
     canvas.font = '10px Comic Sans MS';
-    canvas.fillText(score1,125,15);
-    canvas.fillText('|',150,15);
-    canvas.fillText(score2,175,15);
+    canvas.fillText(score1,123,15);
+    canvas.fillText('|',148,15);
+    canvas.fillText(score2,173,15);
     canvas.fill();
 }  
       
@@ -183,8 +183,6 @@ function keyup(key){
 */
 // create frame
 var draw = setInterval(function(){draw_handler(ctx)},15);
-//frame.set_keydown_handler(keydown)
-//frame.set_keyup_handler(keyup)
 
 // start frame
 new_game();
