@@ -6,7 +6,7 @@ var ctx = box.getContext("2d");
 
 // initialize globals - pos and vel encode vertical info for paddles
 var WIDTH = 300;
-var HEIGHT = 200;
+var HEIGHT = 150;
 var BALL_RADIUS = 10;
 var PAD_WIDTH = 4;
 var PAD_HEIGHT = 40;
@@ -24,11 +24,11 @@ function spawn_ball(direction){
     ball_pos = [WIDTH/2,HEIGHT/2];
     if (direction == LEFT){
         ball_vel[0] = Math.random() * (5-2) + 2;
-        ball_vel[1] = -Math.random() * (5-2) + 2;
+        ball_vel[1] = -Math.random() * (5-1) + 1;
     }
     else{   
         ball_vel[0] = -Math.random() * (5-2) + 2;
-        ball_vel[1] = Math.random() * (5-2) + 2;
+        ball_vel[1] = Math.random() * (5-1) + 1;
     }
 }
 
@@ -153,7 +153,7 @@ function draw_handler(canvas){
     canvas.fillStyle = "white";
     canvas.font = '10px Comic Sans MS';
     canvas.fillText(score1,123,15);
-    canvas.fillText('|',148,15);
+    canvas.fillText('-',148,15);
     canvas.fillText(score2,173,15);
     canvas.fill();
 }  
