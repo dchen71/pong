@@ -181,6 +181,9 @@ function keyup(key){
         paddle2_vel = 0
 }
 */
+
+
+
 // create frame
 var draw = setInterval(function(){draw_handler(ctx)},15);
 
