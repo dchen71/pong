@@ -158,31 +158,35 @@ function draw_handler(canvas){
     canvas.fill();
 }  
       
-      /*  
-function keydown(key){
-    if key == simplegui.KEY_MAP["w"]:
-        paddle1_vel -= 5
-    if key == simplegui.KEY_MAP["up"]:
-        paddle2_vel -= 5
-    if key == simplegui.KEY_MAP["s"]:
-        paddle1_vel += 5
-    if key == simplegui.KEY_MAP["down"]:
-        paddle2_vel += 5
-}
-        
-function keyup(key){
-    if key==simplegui.KEY_MAP["w"]:
-        paddle1_vel = 0
-    if key==simplegui.KEY_MAP["up"]:
-        paddle2_vel = 0
-    if key == simplegui.KEY_MAP["s"]:
-        paddle1_vel = 0
-    if key == simplegui.KEY_MAP["down"]:
-        paddle2_vel = 0
-}
-*/
 
-
+//Key handlers
+$(window).keydown(function(evt) {
+  if (evt.which == 87) { // ctrl
+    paddle1_vel -= 5;
+  }
+  if (evt.which == 38) { // ctrl
+    paddle2_vel -= 5;
+  }
+  if (evt.which == 83) { // ctrl
+    paddle1_vel += 5;
+  }
+  if (evt.which == 40) { // ctrl
+    paddle2_vel += 5;
+  }
+}).keyup(function(evt) {
+  if (evt.which == 87) { // ctrl
+    paddle1_vel = 0;
+  }
+  if (evt.which == 38) { // ctrl
+    paddle2_vel = 0;
+  }
+  if (evt.which == 83) { // ctrl
+    paddle1_vel = 0;
+  }
+  if (evt.which == 40) { // ctrl
+    paddle2_vel = 0;
+  }
+});
 
 // create frame
 var draw = setInterval(function(){draw_handler(ctx)},15);
